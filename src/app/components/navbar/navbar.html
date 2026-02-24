@@ -1,0 +1,51 @@
+<nav class="bg-white border-b border-gray-200 w-full overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between h-16 items-center">
+      
+      <button (click)="isProfilPicClicked.set(true)" class="relative h-10 w-10 overflow-hidden rounded-full border-2 border-blue-500 transition-transform hover:scale-110">
+        <img src="images/pp.jpeg" alt="Photo de profil" class="h-full w-full object-cover">
+      </button>
+
+      <div class="hidden md:flex space-x-8">
+        <a href="#" class="hover:text-blue-600">Accueil</a>
+        <a href="#" class="hover:text-blue-600">Projets</a>
+        <a href="#" class="hover:text-blue-600">Contact</a>
+      </div>
+
+      <div class="md:hidden flex items-center">
+        <button (click)="toggleMenu()" class="p-2 text-gray-600 md:hidden outline-none bg-gray-100 rounded-md">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            @if (!isMenuOpen()) {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            } @else {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            }
+        </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  @if (isMenuOpen()) {
+  <div class="md:hidden bg-white border-t border-gray-200 shadow-lg">
+    <a href="#" class="block py-3 px-4 hover:bg-gray-100 border-b border-gray-50">Accueil</a>
+    <a href="#" class="block py-3 px-4 hover:bg-gray-100 border-b border-gray-50">Projets</a>
+    <a href="#" class="block py-3 px-4 hover:bg-gray-100">Contact</a>
+  </div>
+}
+@if (isProfilPicClicked()) {
+  <div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm">
+    
+    <button (click)="isProfilPicClicked.set(false)" 
+            class="absolute top-5 right-5 text-white hover:text-red-500 transition-colors">
+      <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <img src="images/pp.jpeg" 
+         alt="Photo de profil agrandie" 
+         class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl border-4 border-white/10">
+  </div>
+}
+</nav>
