@@ -4,7 +4,7 @@ import { Navbar } from './components/navbar/navbar';
 import {HeroSection} from "./components/hero-section/hero-section";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, HeroSection],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

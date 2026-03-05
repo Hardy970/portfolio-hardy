@@ -7,9 +7,9 @@
       </button>
 
       <div class="hidden md:flex space-x-8">
-        <a href="#" class="hover:text-blue-600">Accueil</a>
-        <a href="#" class="hover:text-blue-600">Projets</a>
-        <a href="#" class="hover:text-blue-600">Contact</a>
+        <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="border-b-2 border-blue-600 pb-1 font-bold" class="hover:text-blue-600 transition-all">Accueil</a>
+        <a routerLink="/projets" routerLinkActive="border-b-2 border-blue-600 pb-1 font-bold" class="hover:text-blue-600 transition-all">Projets</a>
+        <a routerLink="/contact" routerLinkActive="border-b-2 border-blue-600 pb-1 font-bold" class="hover:text-blue-600 transition-all">Contact</a>
       </div>
 
       <div class="md:hidden flex items-center">
@@ -28,9 +28,9 @@
 
   @if (isMenuOpen()) {
   <div class="md:hidden bg-white border-t border-gray-200 shadow-lg">
-    <a href="#" class="block py-3 px-4 hover:bg-gray-100 border-b border-gray-50">Accueil</a>
-    <a href="#" class="block py-3 px-4 hover:bg-gray-100 border-b border-gray-50">Projets</a>
-    <a href="#" class="block py-3 px-4 hover:bg-gray-100">Contact</a>
+    <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive=" font-bold" class="block py-3 px-4 hover:bg-gray-100 border-b border-gray-50">Accueil</a>
+    <a routerLink="/projets" routerLinkActive="font-bold" class="block py-3 px-4 hover:bg-gray-100 ">Projets</a>
+    <a routerLink="/contact" routerLinkActive="font-bold" class="block py-3 px-4 hover:bg-gray-100">Contact</a>
   </div>
 }
 @if (isProfilPicClicked()) {
