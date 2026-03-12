@@ -1,2 +1,27 @@
 @import "tailwindcss";
 
+@layer components {
+  /* Définition de l'animation de défilement */
+  @keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+
+  /* La classe que nous utilisons dans le HTML */
+  .animate-infinite-scroll {
+    display: flex;
+    width: max-content;
+    animation: infinite-scroll 30s linear infinite;
+  }
+
+  /* Optionnel : mettre en pause au survol */
+  .pause {
+    animation-play-state: paused;
+  }
+}
+.pause-on-hover:hover {
+  animation-play-state: paused;
+}
+html {
+  scrollbar-gutter: stable;
+}

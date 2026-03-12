@@ -8,5 +8,4 @@ import { HeroSection } from '../hero-section/hero-section';
   styleUrl: './home.scss',
 })
 export class Home {
-
 }
