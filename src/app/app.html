@@ -1,6 +1,11 @@
-<app-navbar></app-navbar>
+@if (showNavbarAndFooter) {
+  <app-navbar></app-navbar>
+}
 
-<main>
-  <router-outlet />
-  
+<main [class.pt-16]="showNavbarAndFooter">
+  <router-outlet></router-outlet>
 </main>
+
+@if (showNavbarAndFooter) {
+  <app-footer></app-footer>
+}

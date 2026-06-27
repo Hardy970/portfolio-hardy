@@ -3,16 +3,17 @@ import { ProjectService } from '../../services/project';
 import { Project } from '../../models/project';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router'; 
+import { ProjectModal } from '../project-modal/project-modal';
 @Component({
   selector: 'app-hero-section',
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule,RouterLink, ProjectModal],
   templateUrl: './hero-section.html',
   styleUrl: './hero-section.scss',
 })
 export class HeroSection implements OnInit, OnDestroy {
   private projectService = inject(ProjectService);
   
-  projects = signal<Project[]>(this.projectService.getProjects().sort((a, b) => b.weight - a.weight));
+  projects = signal<Project[]>(this.projectService.getProjects().sort((a, b) => b.weight - a.weight).slice(0, 3) );// Ne garde que les 3 premiers);
   currentIndex = signal(0);
   selectedProject: Project | null = null;
   private autoPlayInterval: any;
